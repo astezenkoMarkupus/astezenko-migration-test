@@ -1,8 +1,9 @@
-import { makeAutoObservable, runInAction } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 
 class Characters
 {
-	characters = []
+	charactersInfo	= {}
+	characters		= []
 
 	constructor(){
 		makeAutoObservable( this )
@@ -12,9 +13,17 @@ class Characters
 		fetch( 'https://rickandmortyapi.com/api/character' )
 			.then( data => data.json() )
 			.then( json => {
-				this.characters = json.results
-				console.log(json.results)
+				this.charactersInfo	= json.info
+				this.characters		= json.results
 			} )
+	}
+
+	get allCharacters(){
+		return this.characters
+	}
+
+	get allCharactersInfo(){
+		return this.charactersInfo
 	}
 }
 
