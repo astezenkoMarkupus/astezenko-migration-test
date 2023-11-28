@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-display: swap;
+	font-family: Philosopher;
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/philosopher-v19-latin-regular.woff2') format('woff2')
+}
+
+@font-face {
+	font-display: swap;
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/mulish-v13-latin-regular.woff2') format('woff2')
+}
+

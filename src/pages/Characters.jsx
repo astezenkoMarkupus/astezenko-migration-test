@@ -1,24 +1,25 @@
 import { useEffect } from 'react'
-import characters from '../store/characters'
 import { observer } from 'mobx-react-lite'
+import characters from '../store/characters'
+import { getCount } from '../helpers/helpers'
+import Character from '../components/Character/Character'
 
 const Characters = observer( () => {
 	useEffect( () => {
 		characters.loadCharacters()
 	}, [] )
 
-	const getCharactersCount = () => {
-		return Object.keys( characters.allCharactersInfo ).length ? `(${ characters.allCharactersInfo.count })` : ''
-	}
-
 	return (
 		<div className="chars">
-			Page Characters { getCharactersCount() }
-			{
-				characters.allCharacters.length
-					? characters.allCharacters.map( char => <div key={ char.id }>{ char.name }</div> )
-					: null
-			}
+			<div className="w-full font-bold mb-5">Characters { getCount( characters.allCharactersInfo ) }</div>
+
+			<div className="chars-inner grid grid-cols-4 gap-6 justify-between">
+				{
+					characters.allCharacters.length
+						? characters.allCharacters.map( char => <Character key={ char.id } char={ char } /> )
+						: null
+				}
+			</div>
 		</div>
 	)
 } )

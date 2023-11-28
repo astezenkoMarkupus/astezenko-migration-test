@@ -27,4 +27,6 @@ class Characters
 	}
 }
 
-export default new Characters()
+const characters = new Characters()
+
+export default characters

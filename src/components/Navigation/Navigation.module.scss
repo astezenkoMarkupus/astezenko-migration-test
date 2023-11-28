@@ -1,0 +1,17 @@
+.nav {
+	@apply flex ml-auto
+}
+
+.menu {
+	@apply flex flex-wrap gap-5;
+
+	&-item {
+		a {
+			@apply transition-colors duration-300 hover:text-blue-400;
+
+			&.active {
+				@apply text-blue-400
+			}
+		}
+	}
+}

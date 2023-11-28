@@ -1,0 +1,11 @@
+.header {
+	@apply px-10 py-4 bg-blue-100;
+
+	&-inner {
+		@apply container mx-auto flex flex-wrap items-center
+	}
+}
+
+.logo {
+	@apply w-40 transition-opacity duration-300 hover:opacity-70
+}
